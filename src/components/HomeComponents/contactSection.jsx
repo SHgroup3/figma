@@ -25,7 +25,7 @@ const ContactSection = () => {
       setFormData({ ...formData, [name]: value });
     }
   };
- const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
   e.preventDefault();
   if (!formData.name || !formData.email || !formData.phone || !formData.message.trim()) {
     alert("Please fill all required fields (*) including a message.");
@@ -49,31 +49,23 @@ const ContactSection = () => {
   setFormData({ name: '', email: '', phone: '', company: '', services: [], message: '' });
 };
 
- // ... baqi state aur functions wahi rahengi
-
   return (
-    <section className="w-full min-h-screen bg-[#EA2451] flex justify-center items-center py-16 px-6 md:px-16 lg:px-20 font-sans">
-      {/* 1. mx-auto aur max-w-7xl ensures centering.
-          2. w-full ensures it takes available space up to the limit.
-          3. rounded-sm maintains your design style.
-      */}
-      <div className="max-w-7xl w-full mx-auto flex flex-col lg:flex-row shadow-2xl rounded-sm overflow-hidden min-h-[600px] bg-white">
-        
-        {/* Left Section (Calendar & Info) */}
-        <div className="flex-[1.2] bg-white p-6 md:p-10 lg:p-12 flex flex-col md:flex-row gap-8">
+    <section className="w-full min-h-screen bg-[#EA2451] flex justify-center items-center p-4 md:p-10 font-sans">
+      <div className="max-w-7xl w-full flex flex-col lg:flex-row shadow-2xl rounded-sm overflow-hidden min-h-[600px]">
+        <div className="flex-[1.2] bg-white p-8 md:p-12 flex flex-col md:flex-row gap-8">
           <div className="w-full md:w-[40%] flex flex-col gap-6">
             <img src="/logos/wp.png" alt="Logo" className="h-8 md:h-10 w-auto object-contain self-start" />
             <div className="text-gray-400 text-[14px] font-normal flex flex-col gap-1">
               <p>🕒 30 min</p>
               <p>📞 Phone call</p>
             </div>
-            <p className="text-[#EA2451] font-bold text-[20px] md:text-[22px] leading-tight">
+            <p className="text-[#EA2451] font-bold text-[22px] leading-tight">
               You can call us at any convenient time to discuss the details of cooperation.
             </p>
           </div>
 
           <div className="w-full md:w-[60%] md:border-l border-gray-100 md:pl-8">
-            <h2 className="text-[22px] md:text-[26px] font-bold text-black mb-6">Select a Date & Time</h2>
+            <h2 className="text-[26px] font-bold text-black mb-6">Select a Date & Time</h2>
             <div className="calendar-container bg-white">
               <Calendar onChange={setDate} value={date} locale="en-GB" className="w-full border-none custom-cal" />
             </div>
@@ -81,18 +73,15 @@ const ContactSection = () => {
               <p className="text-[13px] text-gray-800 mb-6 font-semibold">
                 Time zone: <span className="font-normal text-gray-500">🌍 Central European Time</span>
               </p>
-              <button className="w-full bg-[#EA2451] text-white py-4 rounded-sm font-bold text-[16px] hover:bg-[#c91f45] transition-all active:scale-95">
+              <button className="w-full bg-[#EA2451] text-white py-4 rounded-sm font-bold text-[16px] hover:bg-[#c91f45] transition-all">
                 Continue
               </button>
             </div>
           </div>
         </div>
-
-        {/* Right Section (Form) */}
-        {/* Background color wahi rakha hai jo original tha, bas padding symmetrical ki hai */}
-        <div className="flex-1 bg-[#EA2451] lg:bg-white/10 backdrop-blur-sm p-6 md:p-10 lg:p-12 flex flex-col gap-6">
+        <div className="flex-1 bg-white/10 backdrop-blur-sm p-8 md:p-12 flex flex-col gap-6">
           <div className="flex flex-col gap-4">
-            <h2 className="text-[28px] md:text-[34px] lg:text-[38px] font-bold leading-[1.1] text-white">
+            <h2 className="text-[32px] md:text-[38px] font-bold leading-[1.1] text-white">
               Drop us a message and we will get in touch in 24h.
             </h2>
           </div>
@@ -115,7 +104,7 @@ const ContactSection = () => {
               <input name="company" value={formData.company} onChange={handleChange} type="text" className="bg-white/20 border border-white/30 rounded-sm p-3 text-white outline-none focus:bg-white/30 transition-all"/>
             </div>
             <div className="md:col-span-2 mt-2">
-              <label className="text-[13px] font-bold mb-3 block text-white">What service are you looking for? *</label>
+              <label className="text-[13px] font-bold mb-3 block text-white">What service are you looking for?</label>
               <div className="grid grid-cols-2 gap-y-2">
                 {['Architecture', 'Development', 'Deployment', 'UI/UX', 'Tech audit'].map(service => (
                   <label key={service} className="flex items-center gap-2 cursor-pointer group">
@@ -127,8 +116,11 @@ const ContactSection = () => {
             </div>
 
             <div className="md:col-span-2 flex flex-col gap-1 mt-2">
-              <label className="text-[11px] font-bold uppercase text-white/80">Message *</label>
-              <textarea name="message" value={formData.message} onChange={handleChange} rows="3" className="bg-white/20 border border-white/30 rounded-sm p-3 text-white outline-none focus:bg-white/30 transition-all" required></textarea>
+              <label className="text-[11px] font-bold uppercase text-white/80">Message</label>
+              <textarea name="message" 
+              value={formData.message} 
+              onChange={handleChange} 
+              rows="3" className="bg-white/20 border border-white/30 rounded-sm p-3 text-white outline-none focus:bg-white/30 transition-all"></textarea>
             </div>
 
             <button type="submit" className="md:col-span-2 bg-white text-[#EA2451] py-4 rounded-sm font-bold text-[16px] hover:bg-gray-100 transition-all uppercase mt-2 shadow-lg active:scale-[0.98]">
@@ -137,8 +129,7 @@ const ContactSection = () => {
           </form>
         </div>
       </div>
-      
-      {/* Styles wahi hain jo aapke code mein thay */}
+
       <style jsx="true">{`
         .react-calendar { border: none !important; width: 100% !important; background: white; font-family: inherit; }
         .react-calendar__tile--active { background: #EA2451 !important; color: white !important; border-radius: 4px; }
