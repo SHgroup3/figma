@@ -8,16 +8,15 @@ const TechLogos = () => {
   ];
 
   return (
-    <footer className="flex-none bg-gray-50 py-8 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Logos Container: Mobile par auto-scroll aur desktop par flex-wrap */}
-        <div className="flex items-center justify-between gap-8 md:gap-12 overflow-x-auto no-scrollbar pb-2">
+    <footer className="py-4 border-gray-500">
+      <div className="max-w-7xl mx-auto px-6 md:px-16">
+        <div className="flex items-center justify-start md:justify-between gap-8 md:gap-12 overflow-x-auto no-scrollbar py-2">
           {techLogos.map((logo, index) => (
             <img 
               key={index} 
               src={`/logos/${logo}`} 
               alt="tech logo" 
-              className="h-6 md:h-8 lg:h-10 transition-all duration-300" 
+              className="h-6 md:h-8 lg:h-9 object-contain flex-shrink-0 transition-all duration-300" 
             />
           ))}
         </div>
